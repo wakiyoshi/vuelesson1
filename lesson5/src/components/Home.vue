@@ -9,19 +9,16 @@
             <p>-生年月日-</p>
             <div id="app">
               <select v-model="selected">
-                <option v-for="(year,index) in list" :key="index" :value="year">{{ year }}年</option>
-              </select>
-            </div>
-            <div id="app2">
+                <option v-for="(year,index) in list" :key="index" :value="year">{{ year }}</option>
+              </select>年
               <select v-model="selected2">
                 <option v-for="(month,index2) in list2" :key="index2" :value="month">{{ month }}月</option>
-              </select> 
-            </div>
-            <div id="app3">
+              </select> 月
               <select v-model="selected3">
                 <option v-for="(day,index3) in list3" :key="index3" :value="day">{{ day }}日</option>
-              </select> 
+              </select> 日
             </div>
+           
         </form>
     <button><router-link to="/survey">次へ進む</router-link></button>
 
@@ -43,6 +40,7 @@ export default {
     num: 100
     }
   },
+  
   created() {
     // 今年
     const year = new Date().getFullYear()
@@ -53,8 +51,8 @@ export default {
     // 初期値の設定
     this.selected = this.list[this.list.length * 0.6]
   },
-  
-  el2: '#app2',
+
+
   data2() {
     return{
     selected2: null,
@@ -72,8 +70,8 @@ export default {
     // 初期値の設定
     this.selected = this.list2[this.list2.length * 0.6]
   },
+}
   
-  }
 
 
 
