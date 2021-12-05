@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'//ルーターのインポート
-import Survey from './views/Survey.vue'
-import Home from './views/Home.vue'
-import Form from './views/Form.vue'
+// import Survey from './views/Survey.vue'
+// import Home from './views/Home.vue'
+// import Form from './views/Form.vue'
 
 
 Vue.use(Router)//ルーターを使えるように
