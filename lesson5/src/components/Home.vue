@@ -71,29 +71,7 @@ export default {
       this.list3.unshift(day - i)
     }
     this.selected = this.list3[this.list3.length * 0.6]
-  },
-
-
-  data2() {
-    return{
-    selected2: null,
-    list2: [],
-    num:12
-    }
-  },
-  created2() {
-    
-    const month = new Date().getMonth();
-    
-    for (let i = 0; i < this.num; i++) {
-      this.list2.unshift(month - i)
-    }
-    // 初期値の設定
-    this.selected = this.list2[this.list2.length * 0.6]
-  },
+  }
 }
-
-
-
 
 </script>
