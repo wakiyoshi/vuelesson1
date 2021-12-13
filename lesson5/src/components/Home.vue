@@ -8,6 +8,7 @@
             <input type="radio" name="r1" value="women">女性
              <p>-生年月日-</p>
             
+            <date>
             <div id="app">
             
               <select v-model="selected">
@@ -21,6 +22,7 @@
                 <option v-for="(day,index3) in list3" :key="index3" :value="day">{{ day }}日</option>
               </select> 日
             </div>
+            </date>
        
         </form>
     <button><router-link to="/survey">次へ進む</router-link></button>
@@ -30,48 +32,33 @@
 
 <script>
 
+import date from '@/src/date.js'
 export default {
-  name: 'date',
+  name:'Home',
   data() {
     return{
-          
     // v-model とバインディングされる
-    selected: null,
+    selected_year: null,
     // select に入れる年を入れる配列
-    list: [],
+    year_list: [],
     // 〜◯◯年前の設定
-    num: 100,
+    year_num: 100,
    
-    selected2: null,
-    list2: [],
-    num2:11,
-    selected3: null,
-    list3: [],
-    num3:31
-    
+    selected_month: null,
+    month_list: [],
+    month_num:11,
+
+    selected_day: null,
+    day_list: [],
+    day_num:31
     }
   },
-  
-  created() {
-    //年
-    const year = new Date().getFullYear()
-    for (let i = 0; i < this.num; i++) {
-      this.list.unshift(year - i)
-    }
-    this.selected = this.list[this.list.length * 0.6]
-    //月
-    const month = new Date().getMonth();
-    for (let i = -1; i < this.num2; i++) {
-      this.list2.unshift(month - i)
-    }
-    this.selected = this.list2[this.list2.length * 0.6]
-    //日
-    const day = 31;
-    for (let i = 0; i < this.num3; i++) {
-      this.list3.unshift(day - i)
-    }
-    this.selected = this.list3[this.list3.length * 0.6]
-  }
-}
+    methods: {
+      test() {
+        // date.js内のメソッドを読み込み
+        date.showDate();
+      },
+    },
 
+}
 </script>
