@@ -13,13 +13,13 @@ function showDate() {
     for (let i = -1; i < this.month_num; i++) {
       this.month_list.unshift(month - i)
     }
-    this.selected_month = this.list2[this.list2.length * 0.6]
+       this.selected_month = this.list2[this.list2.length * 0.6]
     //日
     const day = 31;
     for (let i = 0; i < this.day_num; i++) {
       this.day_list.unshift(day - i)
     }
-    this.selected_day = this.list3[this.list3.length * 0.6]
+      this.selected_day = this.list3[this.list3.length * 0.6]
   }
   export default { showDate };
 
