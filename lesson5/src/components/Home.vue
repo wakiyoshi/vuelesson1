@@ -6,20 +6,16 @@
             <p>-性別-</p>
             <input type="radio" name="r1" value="men">男性
             <input type="radio" name="r1" value="women">女性
-             <p>-生年月日-</p>
-          <showDate>
-            <div id = "app">
-              <select v-model="selected_year">
-                <option v-for="(year,index) in year_list" :key="index" :value="year">{{ year }}</option>
+            <p>-生年月日-</p>
+              <select name="year" id="id_year" @change="updateYear">
+                <option v-for="(year, key) in years" :key="key">{{ year }}</option>
               </select>年
-              <select v-model="selected_month">
-                <option v-for="(month,index2) in month_list" :key="index2" :value="month">{{ month }}月</option>
-              </select> 月
-              <select v-model="selected_day">
-                <option v-for="(day,index3) in day_list" :key="index3" :value="day">{{ day }}日</option>
-              </select> 日
-            </div>
-          </showDate>
+              <select name="month" id="id_month" @change="updateMonth">
+                <option v-for="(month, key) in months" :key="key">{{ month }}</option>
+              </select>月
+              <select name="day" id="id_day" @change="updateDay">
+                <option v-for="(day, key) in days" :key="key">{{ day }}</option>
+              </select>日
         </form>
     <button><router-link to="/survey">次へ進む</router-link></button>
 
@@ -27,38 +23,31 @@
 </template>
 
 <script>
+import { yearList, monthList, dayList } from '@/date.js';
 
-import date from '@/date.js'
 export default {
-  name:'Home',
-  
   data() {
-    return{
-    // v-model とバインディングされる
-    selected_year: null,
-    // select に入れる年を入れる配列
-    year_list: [],
-    // 〜◯◯年前の設定
-    year_num: 100,
-   
-    selected_month: null,
-    month_list: [],
-    month_num:11,
-
-    selected_day: null,
-    day_list: [],
-    day_num:31
-
-    
+    return {
+      years: yearList,
+      months: monthList,
+      days: dayList,
     }
   },
-    methods: {
-      date() {
-        // date.js内のメソッドを読み込み
-         date.showDate();
-         
-      },
+  methods: {
+    updateGender (e) {
+      this.$store.commit('updateGender', e.target.value)
     },
-
+    updateYear (e) {
+      this.$store.commit('updateYear', e.target.value)
+    },
+    updateMonth (e) {
+      this.$store.commit('updateMonth', e.target.value)
+    },
+    updateDay (e) {
+      this.$store.commit('updateDay', e.target.value)
+    },
+  }
 }
+
+
 </script>

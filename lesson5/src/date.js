@@ -1,25 +1,21 @@
+var this_year, today;
+today = new Date();
+this_year = today.getFullYear();
 
+// 配列を変数に格納
+const yearList = []
+const monthList = []
+const dayList = []
 
-function showDate() {
+// 第一引数〜第二引数までの年月日を生成し、配列（list）に追加する関数を作成
+const optionLoop = (start, end, list) => {
+    for( let i = start; i <= end; i++)
+        list.push(i)
+}
 
-    //年
-    const year = new Date().getFullYear()
-    for (let i = 0; i < this.year_num; i++) {
-      this.year_list.unshift(year - i)
-    }
-    this.selected_year = this.list[this.list.length * 0.6]
-    //月
-    const month = new Date().getMonth();
-    for (let i = -1; i < this.month_num; i++) {
-      this.month_list.unshift(month - i)
-    }
-       this.selected_month = this.list2[this.list2.length * 0.6]
-    //日
-    const day = 31;
-    for (let i = 0; i < this.day_num; i++) {
-      this.day_list.unshift(day - i)
-    }
-      this.selected_day = this.list3[this.list3.length * 0.6]
-  }
-  export default { showDate };
+optionLoop(1950, this_year, yearList);
+optionLoop(1, 12, monthList);
+optionLoop(1, 31, dayList);
 
+// 年月日の値のforループを配列に格納し、vueコンポーネントにexportする
+export {yearList, monthList, dayList}
