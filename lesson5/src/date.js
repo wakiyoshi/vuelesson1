@@ -1,6 +1,6 @@
-var this_year, today;
-today = new Date();
-this_year = today.getFullYear();
+
+const today = new Date();
+const thisYear = today.getFullYear();
 
 // 配列を変数に格納
 const yearList = []
@@ -13,7 +13,7 @@ const optionLoop = (start, end, list) => {
         list.push(i)
 }
 
-optionLoop(1950, this_year, yearList);
+optionLoop(1950, thisYear, yearList);
 optionLoop(1, 12, monthList);
 optionLoop(1, 31, dayList);
 

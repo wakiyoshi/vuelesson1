@@ -2,10 +2,10 @@
     <div class="home">
         <p>STEP1</p>
         <h1>お客様の情報を入力してください</h1>
-        <form method="post" action="">
+        
             <p>-性別-</p>
-            <input type="radio" name="r1" value="men">男性
-            <input type="radio" name="r1" value="women">女性
+            <input type="radio" name="gender" value="男性" @change="updateGender">男性
+            <input type="radio" name="gender" value="女性" @change="updateGender">女性
             <p>-生年月日-</p>
               <select name="year" id="id_year" @change="updateYear">
                 <option v-for="(year, key) in years" :key="key">{{ year }}</option>
@@ -16,7 +16,7 @@
               <select name="day" id="id_day" @change="updateDay">
                 <option v-for="(day, key) in days" :key="key">{{ day }}</option>
               </select>日
-        </form>
+        
     <button><router-link to="/survey">次へ進む</router-link></button>
 
   </div>
