@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'//ルーターのインポート
-import Survey from './views/Survey.vue'
-import Home from './views/Home.vue'
-import Form from './views/Form.vue'
+import Survey from './components/Survey.vue'
+import Home from './components/Home.vue'
+import Form from './components/Form.vue'
+import Confirmation from './components/Confirmation.vue'
+
 
 
 Vue.use(Router)//ルーターを使えるように
@@ -28,7 +30,12 @@ export default new Router({
       path: '/form',
       name: 'Form',
       component: Form
-    }
+    },
+    {
+      path: '/confirmation',
+      name: 'Confirmation',
+      component: Confirmation
+    },
   ]
 })
 
